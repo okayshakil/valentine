@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For Izabelle 💗</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #ffb6d9, #ffd6eb);
+      font-family: 'Comic Sans MS', 'Trebuchet MS', cursive;
+      overflow-x: hidden;
+    }
+
+    .card {
+      background: #fff0f7;
+      padding: 35px 25px;
+      border-radius: 28px;
+      text-align: center;
+      box-shadow: 0 25px 55px rgba(255,105,180,0.4);
+      max-width: 520px;
+      margin: 25px auto;
+      border: 4px solid #ff8fc7;
+    }
+
+    h1 {
+      color: #ff4fa3;
+      margin-bottom: 10px;
+      font-size: clamp(26px, 6vw, 32px);
+    }
+
+    p {
+      font-size: clamp(16px, 4.5vw, 19px);
+      margin-bottom: 18px;
+      color: #ff5fa8;
+    }
+
+    .buttons {
+      position: relative;
+      height: 90px;
+      margin-bottom: 15px;
+    }
+
+    button {
+      padding: 14px 28px;
+      font-size: clamp(16px, 4.5vw, 19px);
+      border: none;
+      border-radius: 35px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.2s ease;
+    }
+
+    #yes {
+      background: #ff4fa3;
+      color: white;
+    }
+
+    #yes:hover {
+      transform: scale(1.1);
+      background: #ff2f8e;
+    }
+
+    #no {
+      background: #ffd6eb;
+      color: #ff4fa3;
+      position: absolute;
+      left: 55%;
+    }
+
+    /* 📸 MOBILE SCROLL PHOTO FEED */
+    .photo-feed {
+      max-width: 520px;
+      margin: 0 auto 50px;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      padding: 0 12px;
+    }
+
+    .photo-feed img {
+      width: 100%;
+      height: auto;
+      border-radius: 28px;
+      border: 5px solid #ff8fc7;
+      box-shadow: 0 15px 30px rgba(255,105,180,0.45);
+    }
+
+    .love {
+      font-size: clamp(40px, 10vw, 48px);
+      margin-top: 20px;
+      animation: pop 0.6s ease infinite alternate;
+    }
+
+    @keyframes pop {
+      from { transform: scale(1); }
+      to { transform: scale(1.25); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 🎶 MUSIC -->
+  <audio id="music" src="music.mp3" loop></audio>
+
+  <div class="card">
+    <h1>Hi My Baby Monkey </h1>
+    <p>I wuzzz just wonderringgg right...</p>
+    <p><strong>But may I be your Valentine?.... typeee shi 💖</strong></p>
+
+    <div class="buttons">
+      <button id="yes" onclick="yesClicked()">Type shiii 💕</button>
+      <button id="no" onmouseover="moveNo()">Nah you hate me n want me to die 🙈</button>
+    </div>
+  </div>
+
+  <!-- 📸 BIG SCROLLABLE PHOTOS -->
+  <div class="photo-feed">
+    <img src="images/pic1.jpg">
+    <img src="images/pic2.jpg">
+    <img src="images/pic3.jpg">
+  </div>
+
+  <script>
+    const music = document.getElementById("music");
+
+    window.addEventListener("load", () => {
+      music.play().catch(() => {});
+    });
+
+    document.addEventListener("click", () => {
+      if (music.paused) music.play();
+    }, { once: true });
+
+    function moveNo() {
+      const noBtn = document.getElementById("no");
+      noBtn.style.left = Math.random() * 60 + "%";
+      noBtn.style.top = Math.random() * 60 + "px";
+    }
+
+    function yesClicked() {
+      music.play();
+
+      document.querySelector(".card").innerHTML = `
+        <h1>Yeah Ik you clicked type shit what else was it gon be anyways hehhehe 💗</h1>
+        <p>Im your Valentine officially, my monkey 💕</p>
+        <p>I love you so much </p>
+        <div class="love">💖💖💖</div>
+      `;
+    }
+  </script>
+
+</body>
+</html>
+
